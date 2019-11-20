@@ -1,1 +1,44 @@
-<p>players works!</p>
+<!-- <p *ngFor="let player of allPlayers | async">
+    {{player | json}}
+</p> -->
+
+<!-- <app-character [character]="character"></app-character> -->
+<!-- <p>
+                {{player | json}}
+            </p> -->
+<div class="main">
+<div *ngFor="let player of allPlayers | async" class="cardmain">
+    <mat-card type=""
+    class="card"
+    data-toggle="modal"
+    data-target="#myModal">
+        <img src="{{player.image}}" style="width:100px">
+        <p>{{player.position}}</p>
+        <p>{{player.name}} </p>
+        <p>{{player.first_surname}} {{player.second_surname}}</p>
+    </mat-card>
+</div>
+</div>
+
+
+  <!-- The Modal -->
+  <div class="modal" id="myModal" >
+    <div class="modal-dialog">
+      <div class="modal-content" ngif="let player2 of allPlayers | async">
+        <!-- Modal Header -->
+        <div class="modal-body" style="background-color: #2D502A;">
+            <p>Ficha tecnica</p>
+            <img src="{{player2.image}}" alt="" width="100px">
+
+        </div>
+
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>

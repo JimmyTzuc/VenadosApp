@@ -1,1 +1,3 @@
-<p>statistics works!</p>
+<p *ngFor="let statistic of allStatistics | async">
+    {{statistic | json}}
+</p>

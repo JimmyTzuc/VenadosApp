@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { StatisticsApiService } from './statistic/shared/statistics-api.service';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-statistics',
   templateUrl: './statistics.component.html',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StatisticsComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private statisticSvc: StatisticsApiService) { }
+  allStatistics: Observable<any>;
   ngOnInit() {
+    this.getStatistics();
   }
 
+  getStatistics(){
+    this.allStatistics = this.statisticSvc.getAllStatistics();
+  }
 }

@@ -8,11 +8,12 @@ import { map } from 'rxjs/operators';
 })
 export class PlayersApiService {
   URL_API = 'https://venados.dacodes.mx/api/players';
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { } 
+ 
   getAllPlayers(): Observable<any> {
     let headers = new HttpHeaders().append('Accept', 'application/json'); 
     return this.http.get<any>(this.URL_API,{headers})
       // .pipe(map((data: any) => data.data.results))
-      .pipe(map((data: any) => data.data.players))
+      .pipe(map((data: any) => data.data.team.defenses))
   }
 }
